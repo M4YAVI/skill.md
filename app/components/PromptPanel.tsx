@@ -57,9 +57,9 @@ export const PromptPanel: React.FC<PromptPanelProps> = ({ activeItem }) => {
                 </h1>
             </div>
 
-            <div className="z-10 w-full max-w-xl">
+            <div className="z-10 w-full max-w-xl flex flex-col justify-center h-full py-12">
                 {/* Connector Line Logic */}
-                <div className="flex items-center space-x-4 mb-8">
+                <div className="flex items-center space-x-4 mb-8 shrink-0">
                     <div className="h-[1px] w-12 md:w-24 bg-white/50" />
                     <span className="text-xs font-mono tracking-[0.2em] uppercase text-white/70">
                         Subject: {activeItem.category}
@@ -67,7 +67,7 @@ export const PromptPanel: React.FC<PromptPanelProps> = ({ activeItem }) => {
                 </div>
 
                 {/* The Action Area */}
-                <div className="mb-8 pointer-events-none">
+                <div className="mb-8 pointer-events-none shrink-0">
                     <h2 className="text-5xl md:text-7xl font-bold leading-[0.9] tracking-tighter mb-4 transition-all duration-300">
                         {activeItem.label}.
                     </h2>
@@ -80,16 +80,21 @@ export const PromptPanel: React.FC<PromptPanelProps> = ({ activeItem }) => {
                 {/* The Prompt / Paragraph - Clickable */}
                 <div
                     onClick={handleCopy}
-                    className="group relative cursor-pointer border-l border-white/40 pl-6 py-4 hover:bg-white/[0.03] hover:border-white transition-all duration-300 rounded-r-lg"
+                    className="group relative cursor-pointer border-l border-white/40 pl-6 py-4 hover:bg-white/[0.03] hover:border-white transition-all duration-300 rounded-r-lg flex flex-col max-h-[50vh]"
                 >
-                    <p className="font-mono text-sm md:text-base leading-relaxed text-white/80 transition-all duration-500 group-hover:text-white group-active:scale-[0.99] origin-left whitespace-pre-wrap">
-                        <span className="text-white/40 select-none block mb-2 text-xs tracking-widest uppercase flex items-center gap-2 group-hover:text-white/70 transition-colors">
-                    // System Prompt
+                    <div className="shrink-0 mb-2">
+                        <span className="text-white/40 select-none text-xs tracking-widest uppercase flex items-center gap-2 group-hover:text-white/70 transition-colors">
+                        // System Prompt
                             <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-white text-black px-1.5 py-0.5 rounded text-[10px] font-bold tracking-normal">COPY</span>
                         </span>
-                        {activeItem.skill}
-                        <span className="animate-pulse inline-block ml-1 text-white">_</span>
-                    </p>
+                    </div>
+
+                    <div className="overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20 scrollbar-track-transparent">
+                        <p className="font-mono text-sm md:text-base leading-relaxed text-white/80 transition-all duration-500 group-hover:text-white group-active:scale-[0.99] origin-left whitespace-pre-wrap">
+                            {activeItem.skill}
+                            <span className="animate-pulse inline-block ml-1 text-white">_</span>
+                        </p>
+                    </div>
                 </div>
 
                 {/* Decor */}
