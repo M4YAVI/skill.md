@@ -1,0 +1,1 @@
+ALTER TABLE "manifesto_items" ADD COLUMN "skill" text DEFAULT '' NOT NULL;
