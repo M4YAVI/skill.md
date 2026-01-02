@@ -1,6 +1,6 @@
 
 // Re-export type from schema for consistency
-export type { ManifestoItem } from '../db/schema';
+export type { ManifestoItem } from './db/schema';
 
 export enum GeneratorState {
   IDLE = 'IDLE',
